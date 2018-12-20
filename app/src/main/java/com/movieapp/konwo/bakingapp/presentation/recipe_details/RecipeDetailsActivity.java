@@ -22,14 +22,13 @@ public class RecipeDetailsActivity extends BaseActivity {
 
         RecipeDetailsContract.Presenter mPresenter = new RecipeDetailsPresenter(recipe);
 
-        RecipeDetailsFragment fragment = (RecipeDetailsFragment) getSupportFragmentManager().findFragmentById(R.id.content_frame_recipe_details);
+        // add fragment
+        RecipeDetailsFragment fragment = new RecipeDetailsFragment();
+        fragment.setPresenter(mPresenter);
 
-        if (fragment != null) {
-            fragment = RecipeDetailsFragment.newInstance(bundle);
-            ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), fragment, R.id.content_frame_recipe_details);
-
-            fragment.setPresenter(mPresenter);
-        }
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.content_frame_recipe_details, fragment)
+                .commit();
     }
 
 
