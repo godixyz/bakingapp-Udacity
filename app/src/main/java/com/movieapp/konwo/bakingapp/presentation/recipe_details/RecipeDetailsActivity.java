@@ -20,6 +20,8 @@ public class RecipeDetailsActivity extends BaseActivity {
         Bundle bundle = new Bundle();
         bundle.putParcelable(RECIPE_KEY, recipe);
 
+        setTitle(recipe.getName());
+
         RecipeDetailsContract.Presenter mPresenter = new RecipeDetailsPresenter(recipe);
 
         // add fragment
