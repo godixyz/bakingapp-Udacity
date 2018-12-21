@@ -68,13 +68,6 @@ public class RecipeDetailsFragment extends BaseFragment implements RecipeDetails
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        if (savedInstanceState == null) {
-            mCurrentRecipe = getArguments().getParcelable(RecipeDetailsActivity.RECIPE_KEY);
-        } else {
-            mCurrentRecipe = savedInstanceState.getParcelable(CURRENT_RECIPE);
-            mPresenter = new RecipeDetailsPresenter(mCurrentRecipe);
-        }
     }
     @Override
     public void onSaveInstanceState(Bundle outState) {
